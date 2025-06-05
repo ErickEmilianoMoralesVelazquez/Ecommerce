@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de Usuario</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Asegura que la tarjeta se centre verticalmente */
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box; /* Incluye padding en el tamaño total */
+      }
+
+      .profile-card {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 350px;
+        text-align: center;
+        padding: 30px;
+        box-sizing: border-box;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .profile-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .profile-card img.avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 4px solid #4caf50; /* Un borde sutil para el avatar */
+        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3); /* Un halo suave */
+      }
+
+      .profile-card h2 {
+        font-size: 1.8em;
+        color: #333;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .profile-card p.title {
+        font-size: 1em;
+        color: #777;
+        margin-bottom: 25px;
+        font-weight: 400;
+      }
+
+      .profile-card .social-links a {
+        display: inline-block;
+        margin: 0 10px;
+        color: #666;
+        font-size: 1.5em;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      .profile-card .social-links a:hover {
+        color: #4caf50;
+        transform: translateY(-3px);
+      }
+
+      .profile-card button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.1em;
+        margin-top: 30px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+      }
+
+      .profile-card button:hover {
+        background-color: #45a049;
+        transform: translateY(-2px);
+      }
+
+      /* Estilos responsivos para pantallas pequeñas */
+      @media (max-width: 400px) {
+        .profile-card {
+          padding: 20px;
+        }
+        .profile-card img.avatar {
+          width: 100px;
+          height: 100px;
+        }
+        .profile-card h2 {
+          font-size: 1.6em;
+        }
+        .profile-card p.title {
+          font-size: 0.9em;
+        }
+        .profile-card .social-links a {
+          font-size: 1.3em;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="profile-card">
+      <img
+        src="https://media.licdn.com/dms/image/v2/D4E35AQGw9C0xshctiw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1730699144929?e=1749769200&v=beta&t=SXCceFOhDCuRcl45D3f65Y3HeqRWV7NdsbZ9vOfbBtc"
+        alt="Foto de Perfil"
+        class="avatar"
+      />
+      <h2>Alberto Vázquez Díaz</h2>
+      <p class="title">Desarrollador Web | Diseñador UX</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/alberto-vázquez-91409023b/" target="_blank" aria-label="LinkedIn"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a
+          href="https://github.com/AlbertoVazquezDiaz"
+          target="_blank"
+          aria-label="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="#" target="_blank" aria-label="Twitter"
+          ><i class="fab fa-twitter"></i
+        ></a>
+      </div>
+      <button>¡Contáctame!</button>
+    </div>
+  </body>
+</html>
