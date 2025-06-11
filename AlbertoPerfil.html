@@ -3,93 +3,197 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfil de Usuario</title>
+    <title>Perfil de Usuario Mejorado</title>
+    <!-- Variables CSS para facilitar mantenimiento y consistencia -->
     <style>
+      :root {
+        --primary: #4caf50;
+        --accent: #81c784;
+        --bg: #f0f2f5;
+        --card-bg: #ffffff;
+        --text-dark: #333333;
+        --text-light: #777777;
+      }
+
+      /* Estilos globales y centrado */
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f0f2f5;
+        background: var(--bg);
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh; /* Asegura que la tarjeta se centre verticalmente */
+        min-height: 100vh;
         margin: 0;
         padding: 20px;
-        box-sizing: border-box; /* Incluye padding en el tamaño total */
+        box-sizing: border-box;
       }
 
+      /* Tarjeta con pseudo-elementos decorativos para dinamismo */
       .profile-card {
-        background-color: #ffffff;
+        position: relative;
+        background: var(--card-bg);
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         width: 100%;
         max-width: 350px;
         text-align: center;
         padding: 30px;
-        box-sizing: border-box;
+        overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
+      /* Círculos degradados detrás de la tarjeta */
+      .profile-card::before,
+      .profile-card::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0.3;
+      }
+      .profile-card::before {
+        background: radial-gradient(
+          circle at top left,
+          var(--primary) 0%,
+          transparent 50%
+        );
+        top: -70%;
+        left: -70%;
+      }
+      .profile-card::after {
+        background: radial-gradient(
+          circle at bottom right,
+          var(--accent) 0%,
+          transparent 50%
+        );
+        bottom: -70%;
+        right: -70%;
+      }
+
+      /* Efecto hover en la tarjeta */
       .profile-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
       }
 
+      /* Avatar con animación al pasar el ratón */
       .profile-card img.avatar {
         width: 120px;
         height: 120px;
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: 20px;
-        border: 4px solid #4caf50; /* Un borde sutil para el avatar */
-        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3); /* Un halo suave */
+        border: 4px solid var(--primary);
+        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+        transition: transform 0.3s ease;
+      }
+      .profile-card img.avatar:hover {
+        transform: scale(1.1);
       }
 
+      /* Nombre y título con jerarquía tipográfica clara */
       .profile-card h2 {
         font-size: 1.8em;
-        color: #333;
+        color: var(--text-dark);
         margin-bottom: 8px;
         font-weight: 600;
       }
-
       .profile-card p.title {
         font-size: 1em;
-        color: #777;
-        margin-bottom: 25px;
+        color: var(--text-light);
+        margin-bottom: 20px;
         font-weight: 400;
       }
 
+      /* Hobbies con íconos Font Awesome para asociación rápida */
+      .profile-card .hobbies {
+        font-size: 0.95em;
+        color: var(--text-dark);
+        margin-bottom: 25px;
+      }
+      .profile-card .hobbies i {
+        margin-right: 8px;
+        color: var(--primary);
+        transition: transform 0.3s;
+      }
+      .profile-card .hobbies i:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Enlaces sociales con tooltips y pequeños rebotes */
       .profile-card .social-links a {
+        position: relative;
         display: inline-block;
-        margin: 0 10px;
-        color: #666;
+        margin: 0 8px;
+        color: #666666;
         font-size: 1.5em;
-        transition: color 0.3s ease, transform 0.3s ease;
+        transition: color 0.3s, transform 0.3s;
       }
-
+      /* Tooltip CSS puro usando pseudo-elementos */
+      .profile-card .social-links a::after {
+        content: attr(aria-label);
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.75);
+        color: #ffffff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.7em;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .profile-card .social-links a:hover::after {
+        opacity: 1;
+      }
       .profile-card .social-links a:hover {
-        color: #4caf50;
-        transform: translateY(-3px);
+        color: var(--primary);
+        transform: scale(1.2) rotate(-10deg);
       }
 
+      /* Botón con efecto ripple CSS puro */
       .profile-card button {
-        background-color: #4caf50;
-        color: white;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--primary);
+        color: #ffffff;
         border: none;
         padding: 12px 25px;
         border-radius: 8px;
         cursor: pointer;
         font-size: 1.1em;
-        margin-top: 30px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
+        margin-top: 20px;
+        transition: transform 0.2s, box-shadow 0.3s;
         box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
       }
-
+      /* Círculo de ripple */
+      .profile-card button::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        transform: scale(0);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.5s, opacity 1s;
+      }
+      .profile-card button:active::after {
+        transform: scale(4);
+        opacity: 1;
+        transition: 0s;
+      }
       .profile-card button:hover {
-        background-color: #45a049;
         transform: translateY(-2px);
       }
 
-      /* Estilos responsivos para pantallas pequeñas */
+      /* Responsivo para pantallas pequeñas */
       @media (max-width: 400px) {
         .profile-card {
           padding: 20px;
@@ -109,6 +213,7 @@
         }
       }
     </style>
+    <!-- Íconos de Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -123,13 +228,18 @@
       />
       <h2>Alberto Vázquez Díaz</h2>
       <p class="title">Ingeniería en Desarrollo y Gestión de Software</p>
-      <div>
-        <span>
-            Hobbies: Escuchar música, los autos y ver series.
-        </span>
+      <div class="hobbies">
+        <!-- Uso de íconos para reforzar significado semántico -->
+        <i class="fas fa-music" aria-label="Música"></i> Escuchar música
+        <i class="fas fa-car" aria-label="Autos"></i> Autos
+        <i class="fas fa-tv" aria-label="Series"></i> Ver series
       </div>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/alberto-vázquez-91409023b/" target="_blank" aria-label="LinkedIn"
+        <!-- Cada enlace incluye aria-label para accesibilidad y tooltip -->
+        <a
+          href="https://www.linkedin.com/in/alberto-vázquez-91409023b/"
+          target="_blank"
+          aria-label="LinkedIn"
           ><i class="fab fa-linkedin"></i
         ></a>
         <a
@@ -142,7 +252,9 @@
           ><i class="fab fa-twitter"></i
         ></a>
       </div>
-      <button>¡Contáctame!</button>
+      <div style="margin-top: 30px;">
+        <button>¡Contáctame!</button>
+      </div>
     </div>
   </body>
 </html>
