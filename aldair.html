@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josue Vargas | Desarrollador Fullstack</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
+    }
+    .glow-red {
+      text-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+    }
+    .glow-white {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+    .bg-pattern {
+      background-color: #000;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(239, 68, 68, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(239, 68, 68, 0.1) 0%, transparent 20%);
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen font-sans">
+
+  <!-- Hero Section -->
+  <header class="relative overflow-hidden bg-pattern">
+    <div class="absolute inset-0 z-0 opacity-20" style="background-image: url('https://www.transparenttextures.com/patterns/black-paper.png');"></div>
+    <div class="container mx-auto px-6 py-24 md:py-32 relative z-10 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 glow-red">Josue Aldair Vargas Luna</h1>
+        <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-red-500">Desarrollador Fullstack</h2>
+        <p class="text-lg text-gray-300 mb-8 max-w-lg">
+          Apasionado por la música, los videojuegos y la F1. Creando soluciones digitales con tecnología moderna.
+        </p>
+        <div class="flex space-x-4 justify-center md:justify-start">
+          <a href="#skills" class="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full font-medium transition-all">
+            Mis habilidades
+          </a>
+          <a href="#contact" class="px-6 py-3 border border-white hover:bg-white hover:text-black rounded-full font-medium transition-all">
+            Contacto
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative float-animation">
+          <div class="absolute inset-0 rounded-full bg-red-600 blur-xl opacity-30"></div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Twenty_One_Pilots_-_Southside_Festival_2022_-_IMG_6029_-_1_%28cropped%29.jpg" 
+               alt="Josue Vargas" 
+               class="relative z-10 w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white shadow-xl">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="py-16 bg-gray-900 bg-opacity-70 backdrop-blur-lg">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center glow-white">
+          <span class="border-b-2 border-red-500 pb-2">Sobre mí</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-xl font-semibold mb-4 text-red-400 flex items-center">
+              <i class="fas fa-user-astronaut mr-3"></i>
+              ¿Quién soy?
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Soy un desarrollador Fullstack apasionado por crear soluciones tecnológicas innovadoras. 
+              Cuando no estoy programando, me encuentras disfrutando de buena música, compitiendo en videojuegos 
+              o siguiendo las emocionantes carreras de Fórmula 1.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4 text-red-400 flex items-center">
+              <i class="fas fa-gamepad mr-3"></i>
+              Hobbies
+            </h3>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-red-900 flex items-center justify-center mr-3">
+                  <i class="fas fa-headphones text-red-400"></i>
+                </div>
+                <span>Escuchar música (Twenty One Pilots fan)</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-red-900 flex items-center justify-center mr-3">
+                  <i class="fas fa-gamepad text-red-400"></i>
+                </div>
+                <span>Jugar videojuegos</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-red-900 flex items-center justify-center mr-3">
+                  <i class="fas fa-car text-red-400"></i>
+                </div>
+                <span>Seguir la Fórmula 1</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 bg-black">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center glow-white">
+        <span class="border-b-2 border-red-500 pb-2">Habilidades Técnicas</span>
+      </h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <!-- Java -->
+        <div class="skill-card bg-gray-900 rounded-xl p-6 text-center transition-all duration-300 hover:border-red-500 border border-gray-800">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gray-800 rounded-full">
+            <i class="fab fa-java text-3xl text-red-500"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Java</h3>
+        </div>
+        
+        <!-- JavaScript -->
+        <div class="skill-card bg-gray-900 rounded-xl p-6 text-center transition-all duration-300 hover:border-red-500 border border-gray-800">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gray-800 rounded-full">
+            <i class="fab fa-js text-3xl text-yellow-400"></i>
+          </div>
+          <h3 class="font-semibold text-lg">JavaScript</h3>
+        </div>
+        
+        <!-- React -->
+        <div class="skill-card bg-gray-900 rounded-xl p-6 text-center transition-all duration-300 hover:border-red-500 border border-gray-800">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gray-800 rounded-full">
+            <i class="fab fa-react text-3xl text-blue-400"></i>
+          </div>
+          <h3 class="font-semibold text-lg">React</h3>
+        </div>
+        
+        <!-- MySQL -->
+        <div class="skill-card bg-gray-900 rounded-xl p-6 text-center transition-all duration-300 hover:border-red-500 border border-gray-800">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gray-800 rounded-full">
+            <i class="fas fa-database text-3xl text-blue-500"></i>
+          </div>
+          <h3 class="font-semibold text-lg">MySQL</h3>
+        </div>
+        
+        <!-- Node.js -->
+        <div class="skill-card bg-gray-900 rounded-xl p-6 text-center transition-all duration-300 hover:border-red-500 border border-gray-800">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gray-800 rounded-full">
+            <i class="fab fa-node-js text-3xl text-green-500"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Node.js</h3>
+        </div>
+        
+        <!-- Sequelize -->
+        <div class="skill-card bg-gray-900 rounded-xl p-6 text-center transition-all duration-300 hover:border-red-500 border border-gray-800">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gray-800 rounded-full">
+            <i class="fas fa-layer-group text-3xl text-blue-300"></i>
+          </div>
+          <h3 class="font-semibold text-lg">Sequelize</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-900 bg-opacity-70 backdrop-blur-lg">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8 glow-white">
+          <span class="border-b-2 border-red-500 pb-2">Contacto</span>
+        </h2>
+        <p class="text-gray-300 mb-12 max-w-2xl mx-auto">
+          ¿Quieres conectarte conmigo? Encuéntrame en estas plataformas o envíame un mensaje.
+        </p>
+        
+        <div class="flex justify-center space-x-8">
+          <a href="#" class="w-14 h-14 rounded-full bg-gray-800 hover:bg-red-600 flex items-center justify-center transition-all transform hover:scale-110">
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+          <a href="#" class="w-14 h-14 rounded-full bg-gray-800 hover:bg-red-600 flex items-center justify-center transition-all transform hover:scale-110">
+            <i class="fab fa-linkedin-in text-2xl"></i>
+          </a>
+          <a href="#" class="w-14 h-14 rounded-full bg-gray-800 hover:bg-red-600 flex items-center justify-center transition-all transform hover:scale-110">
+            <i class="fab fa-instagram text-2xl"></i>
+          </a>
+          <a href="#" class="w-14 h-14 rounded-full bg-gray-800 hover:bg-red-600 flex items-center justify-center transition-all transform hover:scale-110">
+            <i class="fas fa-envelope text-2xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-black border-t border-gray-800">
+    <div class="container mx-auto px-6 text-center">
+      <div class="flex justify-center mb-6">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1HRp9eg1I1Sr8yA3d-u1BcUzk9fqDgxKmw&s" 
+             alt="Twenty One Pilots Logo" 
+             class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+      </div>
+      <p class="text-gray-400">
+        &copy; 2023 Josue Aldair Vargas Luna. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Efecto de escritura para el título
+    document.addEventListener('DOMContentLoaded', function() {
+      const heroTitle = document.querySelector('header h1');
+      heroTitle.style.opacity = '0';
+      setTimeout(() => {
+        heroTitle.style.transition = 'opacity 1.5s ease';
+        heroTitle.style.opacity = '1';
+      }, 300);
+    });
+  </script>
+</body>
+</html>
