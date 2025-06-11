@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joshua Quevedo | Ingeniero en Software</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --dark: #1e293b;
+      --light: #f8fafc;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .card:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .avatar-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+    }
+    
+    .avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+      transition: all 0.4s ease;
+    }
+    
+    .avatar-container:hover .avatar {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+    }
+    
+    .avatar-ring {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: var(--primary);
+      border-right-color: var(--secondary);
+      animation: spin 6s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .hobby-badge {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+      border-radius: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hobby-badge::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      animation: shine 3s infinite;
+    }
+    
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      100% { transform: translateX(100%) rotate(30deg); }
+    }
+    
+    .social-icon {
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .social-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out forwards;
+      opacity: 0;
+    }
+    
+    .delay-1 { animation-delay: 0.3s; }
+    .delay-2 { animation-delay: 0.6s; }
+    .delay-3 { animation-delay: 0.9s; }
+    .delay-4 { animation-delay: 1.2s; }
+    
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    
+    .slide-up {
+      animation: slideUp 1s ease-out forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    
+    @keyframes slideUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float linear infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+    
+    .tech-stack {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    
+    .tech-item {
+      background: rgba(99, 102, 241, 0.1);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .tech-item:hover {
+      background: rgba(99, 102, 241, 0.2);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-6 relative">
+  
+  <!-- Floating particles background -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Main card -->
+  <div class="card max-w-md w-full p-8 text-center slide-up overflow-hidden relative z-10">
+    <!-- Decorative gradient bar -->
+    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
+    
+    <!-- Floating avatar with animated ring -->
+    <div class="mb-8 floating">
+      <div class="avatar-container">
+        <div class="avatar-ring"></div>
+        <img src="/images/Josh.png" alt="Joshua Quevedo" class="avatar" />
+      </div>
+    </div>
+    
+    <!-- Name with subtle animation -->
+    <h1 class="text-4xl font-bold text-gray-800 mb-2 fade-in">
+      Joshua Emmanuel <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">Quevedo Sánchez</span>
+    </h1>
+    
+    <!-- Career with icon -->
+    <div class="flex items-center justify-center mb-6 fade-in delay-1">
+      <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
+        <i class="fas fa-code text-indigo-600"></i>
+      </div>
+      <p class="text-gray-600 font-medium">Ingeniería en Desarrollo y Gestión de Software</p>
+    </div>
+    
+    <!-- Hobbies with shine effect -->
+    <div class="hobby-badge inline-block px-5 py-3 mb-8 fade-in delay-2">
+      <div class="flex items-center space-x-3">
+        <div class="flex space-x-2">
+          <span class="text-indigo-500"><i class="fas fa-gamepad"></i></span>
+          <span class="text-purple-500"><i class="fas fa-music"></i></span>
+          <span class="text-indigo-500"><i class="fas fa-laptop-code"></i></span>
+        </div>
+        <span class="text-gray-700 font-medium">Hobbies: Videojuegos, Música & Programación</span>
+      </div>
+    </div>
+    
+    <!-- Tech stack -->
+    <div class="fade-in delay-3">
+      <h3 class="text-sm font-semibold text-gray-500 mb-3">Habilidades</h3>
+      <div class="tech-stack">
+        <span class="tech-item">JavaScript</span>
+        <span class="tech-item">HTML/CSS</span>
+        <span class="tech-item">Python</span>
+        <span class="tech-item">Java</span>
+        <span class="tech-item">SQL</span>
+        <span class="tech-item">Node</span>
+      </div>
+    </div>
+    
+    <!-- Social links with hover effects -->
+    <div class="flex justify-center space-x-5 mt-8 fade-in delay-4">
+      <a href="https://github.com/JoshuaQS" target="_blank" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-600">
+        <i class="fab fa-github text-xl"></i>
+      </a>
+      <a href="https://instagram.com/josh.qs" target="_blank" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-pink-500 hover:bg-pink-100 hover:text-pink-600">
+        <i class="fab fa-instagram text-xl"></i>
+      </a>
+      <a href="mailto:20223tn157@utez.edu.mx" target="_blank" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-blue-100 hover:text-blue-600">
+        <i class="fas fa-envelope text-xl"></i>
+      </a>
+      <a href="#" class="social-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-blue-500 hover:bg-blue-100 hover:text-blue-600">
+        <i class="fab fa-linkedin-in text-xl"></i>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Create floating particles
+    document.addEventListener('DOMContentLoaded', function() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 20;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random size between 5px and 15px
+        const size = Math.random() * 10 + 5;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Random animation duration between 10s and 30s
+        const duration = Math.random() * 20 + 10;
+        particle.style.animationDuration = `${duration}s`;
+        
+        // Random delay
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    });
+  </script>
+</body>
+</html>
