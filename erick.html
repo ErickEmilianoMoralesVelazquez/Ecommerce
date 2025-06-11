@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil Personal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-gradient {
+      background: linear-gradient(270deg, #00ff87, #60efff, #ff0099);
+      background-size: 200% 200%;
+      animation: gradientAnimation 6s ease infinite;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen relative" id="background">
+
+  <!-- Fondo animado Vanta RINGS -->
+  <div id="vanta-bg" class="absolute inset-0 -z-10"></div>
+
+  <div class="container mx-auto px-4 py-12 relative z-10">
+    <div class="max-w-4xl mx-auto bg-gray-900/70 backdrop-blur-xl rounded-2xl overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] border border-cyan-400/30 transition-all duration-300">
+        <!-- Encabezado con gradiente futurista -->
+        <div class="h-48 relative bg-gradient-to-r from-cyan-800 to-fuchsia-700">
+          <div class="absolute inset-0 bg-black opacity-30"></div>
+          <div class="absolute -bottom-16 left-8 z-10">
+            <div class="w-48 h-48 bg-gray-900 rounded-full border-4 border-cyan-400/30 overflow-hidden shadow-lg">
+              <img
+                src="images/Erick.png"
+                alt="Perfil"
+                class="w-full h-full object-cover"
+                onerror="this.src='https://via.placeholder.com/192'"
+              />
+            </div>
+          </div>
+        </div>
+      
+        <div class="relative z-0 pt-20 px-8 pb-10 text-white">
+          <h1 class="text-4xl font-bold mb-2 text-cyan-300">Erick Emiliano Morales Velázquez</h1>
+          <h2 class="text-lg text-fuchsia-300 mb-6">Ingeniería en Desarrollo y Gestión de Software</h2>
+      
+          <!-- Información -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-2xl font-semibold mb-4 text-cyan-400 flex items-center">
+                <i class="fas fa-user-circle mr-3"></i>
+                Sobre mí
+              </h3>
+              <p class="text-gray-300">Me gusta mucho la musica de TheWeeknd y Billie Eilish. Las mejores canciones por siempre serán Out Of Time y Wildflower.</p>
+            </div>
+      
+            <div>
+              <h3 class="text-2xl font-semibold mb-4 text-pink-400 flex items-center">
+                <i class="fas fa-heart mr-3"></i>
+                Hobbies e Intereses
+              </h3>
+              <ul class="grid grid-cols-2 gap-3 text-gray-300">
+                <li class="flex items-center space-x-2">
+                  <i class="fas fa-dumbbell text-indigo-300"></i><span>Ejercicio</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <i class="fas fa-music text-purple-300"></i><span>Música</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <i class="fas fa-code text-blue-400"></i><span>Programación</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+      
+          <!-- Habilidades -->
+          <div class="space-y-4">
+            <h3 class="text-2xl font-semibold mb-4 text-teal-300 flex items-center">
+              <i class="fas fa-laptop-code mr-3"></i>
+              Habilidades Técnicas
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="bg-slate-800/60 backdrop-blur-lg border border-cyan-400/20 rounded-lg p-4 text-center hover:scale-105 transition">
+                <i class="fab fa-node text-3xl text-orange-400 mb-2"></i>
+                <p class="text-white">NodeJS</p>
+              </div>
+              <div class="bg-slate-800/60 backdrop-blur-lg border border-cyan-400/20 rounded-lg p-4 text-center hover:scale-105 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png" alt="Flutter" class="mx-auto h-8 mb-2" />
+                <p class="text-white">Flutter</p>
+              </div>
+              
+              <div class="bg-slate-800/60 backdrop-blur-lg border border-cyan-400/20 rounded-lg p-4 text-center hover:scale-105 transition">
+                <i class="fab fa-js text-3xl text-yellow-400 mb-2"></i>
+                <p class="text-white">JavaScript</p>
+              </div>
+              <div class="bg-slate-800/60 backdrop-blur-lg border border-cyan-400/20 rounded-lg p-4 text-center hover:scale-105 transition">
+                <i class="fab fa-react text-3xl text-cyan-300 mb-2"></i>
+                <p class="text-white">React</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Redes -->
+          <div class="mt-10 pt-8 border-t border-cyan-400/20">
+            <div class="flex justify-center space-x-6">
+              <a href="https://github.com/ErickEmilianoMoralesVelazquez" class="text-cyan-300 hover:text-white transform hover:scale-110 transition">
+                <i class="fab fa-github text-2xl"></i>
+              </a>
+              <a href="https://www.instagram.com/erickvelazzz" class="text-pink-400 hover:text-white transform hover:scale-110 transition">
+                <i class="fab fa-instagram text-2xl"></i>
+              </a>
+              <a href="https://www.tiktok.com/@erickvelazzz" class="text-white/60 hover:text-white transform hover:scale-110 transition">
+                <i class="fab fa-tiktok text-2xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  </div>
+
+  <!-- Scripts de Vanta RINGS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.rings.min.js"></script>
+  <script>
+    VANTA.RINGS({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      scale: 1.0,
+      scaleMobile: 1.0
+    });
+  </script>
+</body>
+</html>
