@@ -9,13 +9,52 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <style>
+      /* Glow animado para el título */
+      .glow {
+        text-shadow:
+          0 0 8px #7f5af0,
+          0 0 16px #7f5af0,
+          0 0 32px #7f5af0;
+        animation: glowPulse 2s infinite alternate;
+      }
+
+      @keyframes glowPulse {
+        from {
+          text-shadow:
+            0 0 8px #7f5af0,
+            0 0 16px #7f5af0,
+            0 0 32px #7f5af0;
+        }
+        to {
+          text-shadow:
+            0 0 2px #7f5af0,
+            0 0 4px #7f5af0,
+            0 0 8px #7f5af0;
+        }
+      }
+    </style>
   </head>
-  <body class="bg-gray-900 text-white min-h-screen">
-    <div class="container mx-auto px-4 py-12">
+  <body class="relative bg-gray-900 text-white min-h-screen overflow-x-hidden">
+    <!-- SVG decorativo animado -->
+    <svg id="techLines" width="100%" height="160" viewBox="0 0 800 160" fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="absolute top-0 left-0 z-0 opacity-20 pointer-events-none">
+      <path
+        d="M0 80 Q200 0 400 80 T800 80"
+        stroke="#00FFFF"
+        stroke-width="2"
+        fill="none"
+        stroke-dasharray="10 5"
+      />
+    </svg>
+
+    <div class="container mx-auto px-4 py-12 relative z-10">
       <!-- Header con efecto de gradiente -->
       <header class="text-center mb-16">
         <h1
-          class="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-pulse"
+          id="titulo"
+          class="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text glow"
         >
           GRINDRS
         </h1>
@@ -24,147 +63,146 @@
 
       <!-- Grid de miembros del equipo -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Tarjeta de miembro 1 -->
-        <div
-          class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20"
-        >
-          <div class="text-center">
-            <div
-              class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden shadow-lg"
-            >
-              <img
-                src="images/Erick.png"
-                alt="Erickelguapo"
-                class="w-full h-full object-cover"
-                onerror="this.src='https://via.placeholder.com/150'"
-              />
+        <!-- Aquí pegas tus tarjetas exactamente como ya las tenías -->
+        <!-- Tarjeta 1 -->
+        <div class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
+            <div class="text-center">
+              <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden shadow-lg">
+                <img src="images/Erick.png" alt="Erickelguapo" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'" />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Erickelguapo</h3>
+              <p class="text-gray-400 mb-4">Desarrollador Full Stack y líder del equipo</p>
+              <a href="/erick.html">
+                <button class="bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
+                  Ver Perfil
+                </button>
+              </a>
             </div>
-            <h3 class="text-xl font-semibold mb-2">Erickelguapo</h3>
-            <p class="text-gray-400 mb-4">
-              Desarrollador Full Stack y líder del equipo
-            </p>
-            <a href="/erick.html">
-              <button
-                class="bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity"
-              >
-                Ver Perfil
-              </button>
-            </a>
           </div>
-        </div>
-
-        <!-- Tarjeta de miembro 2 -->
-        <div
-          class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20"
-        >
-          <div class="text-center">
-            <div
-              class="w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4"
-            >
-              <i class="fas fa-user text-3xl"></i>
+  
+          <!-- Tarjeta 2 -->
+          <div class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
+            <div class="text-center">
+              <div class="w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-user text-3xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Jesus Torres Galván</h3>
+              <p class="text-gray-400 mb-4">Frontend Developer</p>
+              <a href="/PerfilJesus.html">
+                <button class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
+                  Ver Perfil
+                </button>
+              </a>
             </div>
-            <h3 class="text-xl font-semibold mb-2">Jesus Torres Galván</h3>
-            <p class="text-gray-400 mb-4">Frontend Developer</p>
-            <a href="/PerfilJesus.html">
-              <button
-                class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity"
-              >
-                Ver Perfil
-              </button>
-            </a>
           </div>
-        </div>
-
-        <!-- Tarjeta de miembro 3 -->
-        <div
-          class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/20"
-        >
-          <div class="text-center">
-            <div
-              class="w-24 h-24 mx-auto bg-gradient-to-br from-pink-500 to-red-500 rounded-full flex items-center justify-center mb-4"
-            >
-              <img
-                src="https://media.licdn.com/dms/image/v2/D4E35AQGw9C0xshctiw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1730699144929?e=1749769200&v=beta&t=SXCceFOhDCuRcl45D3f65Y3HeqRWV7NdsbZ9vOfbBtc"
-                alt="Alberto Vázquez"
-                class="w-full h-full object-cover rounded-full"
-                onerror="this.src='https://via.placeholder.com/150'"
-              />
+  
+          <!-- Tarjeta 3 -->
+          <div class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/20">
+            <div class="text-center">
+              <div class="w-24 h-24 mx-auto bg-gradient-to-br from-pink-500 to-red-500 rounded-full flex items-center justify-center mb-4">
+                <img src="https://media.licdn.com/dms/image/v2/D4E35AQGw9C0xshctiw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1730699144929?e=1749769200&v=beta&t=SXCceFOhDCuRcl45D3f65Y3HeqRWV7NdsbZ9vOfbBtc" alt="Alberto Vázquez" class="w-full h-full object-cover rounded-full" onerror="this.src='https://via.placeholder.com/150'" />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Miembro 3</h3>
+              <p class="text-gray-400 mb-4">UX/UI Designer</p>
+              <a href="/AlbertoPerfil.html">
+                <button class="bg-gradient-to-r from-pink-500 to-red-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
+                  Ver Perfil
+                </button>
+              </a>
             </div>
-            <h3 class="text-xl font-semibold mb-2">Miembro 3</h3>
-            <p class="text-gray-400 mb-4">UX/UI Designer</p>
-            <a href="/AlbertoPerfil.html">
-              <button
-                class="bg-gradient-to-r from-pink-500 to-red-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity"
-              >
-                Ver Perfil
-              </button>
-            </a>
           </div>
-        </div>
-
-        <div class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
-          <div class="text-center">
-            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg mb-4">
-              <img
-                src="images/Josh.png"
-                alt="Joshua Quevedo"
-                class="w-full h-full object-cover"
-                onerror="this.src='https://via.placeholder.com/150'"
-              />
+  
+          <!-- Tarjeta 4 -->
+          <div class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
+            <div class="text-center">
+              <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg mb-4">
+                <img src="images/Josh.png" alt="Joshua Quevedo" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'" />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Joshua Quevedo</h3>
+              <p class="text-gray-400 mb-4">Frontend Developer</p>
+              <a href="josh.html">
+                <button class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
+                  Ver Perfil
+                </button>
+              </a>
             </div>
-            <h3 class="text-xl font-semibold mb-2">Joshua Quevedo</h3>
-            <p class="text-gray-400 mb-4">Frontend Developer</p>
-            <a href="josh.html">
-              <button
-                class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity"
-              >
-                Ver Perfil
-              </button>
-            </a>
           </div>
-        </div>
-
-        <div
-          class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20"
-        >
-          <div class="text-center">
-            <div
-              class="w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4"
-            >
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Twenty_One_Pilots_-_Southside_Festival_2022_-_IMG_6029_-_1_%28cropped%29.jpg"
-                alt="Aldair Vargas"
-                class="w-full h-full object-cover rounded-full"
-                onerror="this.src='https://via.placeholder.com/150'"
-              />
+  
+          <!-- Tarjeta 5 -->
+          <div class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
+            <div class="text-center">
+              <div class="w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Twenty_One_Pilots_-_Southside_Festival_2022_-_IMG_6029_-_1_%28cropped%29.jpg" alt="Aldair Vargas" class="w-full h-full object-cover rounded-full" onerror="this.src='https://via.placeholder.com/150'" />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Rauzg3r</h3>
+              <p class="text-gray-400 mb-4">Full Stack Developer</p>
+              <a href="/aldair.html">
+                <button class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
+                  Ver Perfil
+                </button>
+              </a>
             </div>
-            <h3 class="text-xl font-semibold mb-2">Rauzg3r</h3>
-            <p class="text-gray-400 mb-4">Full Stack Developer</p>
-            <a href="/aldair.html">
-              <button
-                class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity"
-              >
-                Ver Perfil
-              </button>
-            </a>
           </div>
-        </div>
-        <div class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
-          <div class="text-center">
-            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg mb-4">
+  
+          <!-- Tarjeta 6 -->
+          <div class="bg-gray-800 rounded-xl p-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
+            <div class="text-center">
+              <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg mb-4"></div>
+              <h3 class="text-xl font-semibold mb-2">Carlos Benjamin</h3>
+              <p class="text-gray-400 mb-4">Backend Developer</p>
+              <a href="/benjamin.html">
+                <button class="bg-gradient-to-r from-pink-500 to-red-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
+                  Ver Perfil
+                </button>
+              </a>
             </div>
-            <h3 class="text-xl font-semibold mb-2">Carlos Benjamin</h3>
-            <p class="text-gray-400 mb-4">Backend Developer</p>
-            <a href="/benjamin.html">
-              <button
-                class="bg-gradient-to-r from-pink-500 to-red-500 px-6 py-2 rounded-full hover:opacity-90 transition-opacity"
-              >
-                Ver Perfil
-              </button>
-            </a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Anime.js + animaciones -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+      // H1: animación descendente y fija
+      anime({
+        targets: "#titulo",
+        translateY: [-100, 20],
+        opacity: [0, 1],
+        duration: 1800,
+        delay: 300,
+        easing: "easeOutExpo",
+        scale: [0.8, 1],
+      });
+
+      // Tarjetas en cascada lenta
+      anime({
+        targets: ".bg-gray-800",
+        opacity: [0, 1],
+        translateY: [60, 0],
+        delay: anime.stagger(300, { start: 800 }),
+        duration: 1800,
+        easing: "easeOutExpo",
+      });
+
+      // SVG decorativo: animar trazo al cargar
+      anime({
+        targets: "#techLines path",
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: "easeInOutSine",
+        duration: 2000,
+        delay: 500,
+      });
+
+      // Loop de pulso suave en el trazo SVG
+      anime({
+        targets: "#techLines path",
+        opacity: [0.15, 0.4],
+        easing: "easeInOutSine",
+        direction: "alternate",
+        duration: 3000,
+        loop: true,
+      });
+    </script>
   </body>
 </html>
